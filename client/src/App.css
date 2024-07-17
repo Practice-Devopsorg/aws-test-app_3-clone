@@ -1,0 +1,71 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+a{
+  text-decoration: none;
+}
+.app {
+  /* text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center; */
+  height: 100vh;
+  width: 100%;
+  /* background:linear-gradient(to bottom,rgb(65, 94, 113),rgb(58, 127, 162)); */
+  /* background:  linear-gradient(to bottom, rgb(3, 99, 125),rgb(4, 128, 162),rgb(4, 135, 172)); */
+  background-color: #122b4f;
+  padding-bottom: 1rem;
+}
+
+
+.map-container{
+  height: 90%;
+  width: 100%;
+}
+
+.footer{
+  height: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 111111;
+  color: white;
+  font-size: 1.8vmin;
+  bottom: 0;
+  padding: 1vmin 0;
+}
+.footer>span{
+  position: relative;
+  top: 0.2vmin;
+  right: .4vmin;
+}
+.footer>a{
+  text-decoration: none;
+  color: white;
+}
+
+
+@media screen and (max-width:550px) {
+  .footer{
+    bottom: -.5vmin;
+  }
+  
+}
+
+
