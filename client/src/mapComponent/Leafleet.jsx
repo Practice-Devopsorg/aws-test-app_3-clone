@@ -153,7 +153,7 @@ const Leafleet = () => {
       click(ee) {
         if (!openData && !openCountryDetail) {
           setmarker({ lat: ee.latlng.lat, lng: ee.latlng.lng });
-        }else if(openCountryDetail)setOpenCountryDetail(false)
+        } else if (openCountryDetail) setOpenCountryDetail(false);
       },
       zoomend: (e) => {},
     });
@@ -183,8 +183,8 @@ const Leafleet = () => {
         setProjects(data?.result);
       }
     } catch (error) {
-      console.log("error is ", error.message);
-      alert("Error is ", error.message);
+      console.log("error: ", error.message);
+      alert(`Error: ${error?.message}`);
     } finally {
       setLoading(false);
     }
@@ -276,6 +276,8 @@ const Leafleet = () => {
         {!loading2 && openForm ? (
           <div className="form-div">
             <i
+              role="button"
+              tabIndex={0}
               className="fa-solid fa-xmark form-x-mark"
               onClick={() => {
                 setOpenForm(false);
@@ -696,7 +698,9 @@ const Leafleet = () => {
                   gridColumnStart:
                     ProjectData.structureType === "Seasonal Tilt" ? "1" : "2",
                   gridColumnEnd:
-                    ProjectData.structureType === "Seasonal Tilt" ? "3" : "3",
+                    ProjectData.structureType === "Seasonal Tilt"
+                      ? "3"
+                      : "auto",
                 }}
               >
                 <label htmlFor="email">Email Id: </label>
@@ -864,9 +868,16 @@ const Leafleet = () => {
                 </span>
               </div>
               <div
+                role="button"
+                tabIndex="0"
                 onClick={() =>
                   marker ? submitHandler() : alert("Please Mark A Location")
                 }
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    marker ? submitHandler() : alert("Please Mark A Location");
+                  }
+                }}
               >
                 <img src={step02} alt="Setp-02" />
                 <span>
@@ -891,7 +902,6 @@ const Leafleet = () => {
                 alignItems: "center",
                 justifyContent: "center",
               }}
-              onClick={() => null}
             >
               <span
                 style={{
@@ -929,6 +939,13 @@ const Leafleet = () => {
                 e.stopPropagation();
                 setOpenCountryDetail((v) => !v);
               }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setOpenCountryDetail((v) => !v);
+                }
+              }}
+              role="button"
+              tabIndex="0"
               ref={ref4}
             >
               <span>Worldwide Projects</span>
@@ -940,7 +957,6 @@ const Leafleet = () => {
               style={{
                 width: openCountryDetail ? "35vmin" : "0",
               }}
-              onClick={(e) => e.stopPropagation()}
               ref={ref3}
             >
               <div>
@@ -949,6 +965,14 @@ const Leafleet = () => {
                     e.stopPropagation();
                     setOpenCountryDetail((v) => !v);
                   }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.stopPropagation();
+                      setOpenCountryDetail((v) => !v);
+                    }
+                  }}
+                  role="button"
+                  tabIndex="0"
                 >
                   Close
                 </div>
@@ -978,6 +1002,21 @@ const Leafleet = () => {
                         }
                       );
                     }}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter") {
+                        setCountryHilight(e.name);
+                        ref.current.flyTo(
+                          { lat: e.latitude, lng: e.longitude },
+                          ref.current.getZoom(),
+                          {
+                            animate: true,
+                            duration: 0.5,
+                          }
+                        );
+                      }
+                    }}
+                    role="button"
+                    tabIndex="0"
                   >
                     <span>{e.name}</span>
                     <span>{e.count}</span>
@@ -994,6 +1033,13 @@ const Leafleet = () => {
               onClick={(e) => {
                 e.stopPropagation();
               }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.stopPropagation();
+                }
+              }}
+              role="button"
+              tabIndex="0"
               ref={ref2}
             >
               <i
@@ -1001,6 +1047,15 @@ const Leafleet = () => {
                   e.stopPropagation();
                   setOpenData(false);
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.stopPropagation();
+                  setOpenData(false);
+
+                  }
+                }}
+                role="button"
+                tabIndex="0"
                 className="fa-solid fa-xmark x-mark"
               ></i>
               <div>
@@ -1165,4 +1220,3 @@ const Leafleet = () => {
 };
 
 export default Leafleet;
-

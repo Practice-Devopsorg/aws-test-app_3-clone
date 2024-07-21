@@ -146,7 +146,6 @@
     border-radius: 8px;
     position: relative;
     /* background: rgba(32, 33, 36, .6); */
-    background: #fff;
     padding: 1vmin 2vmin;
     background: linear-gradient(
       to bottom,
@@ -292,19 +291,18 @@
   
   .form-x-mark {
     position: absolute;
-    right: 0;
-    top: 0;
-    margin: 1vmin 1.5vmin;
-    font-size: 4vmin;
+    right: 2vmin;
+    top: 2vmin;
+    font-size: 3.5vmin;
     color: black;
     font-weight: 800;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-out;
   }
   
   .form-x-mark:hover {
-    rotate: 90deg;
-    scale: 0.8;
+    scale: 0.8; 
+    color: #353d46;
   }
 
   .step-container{
