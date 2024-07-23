@@ -15,6 +15,9 @@ application.use((req, res, next) => {
 });
 application.use(handleRoutes)
 
+application.get("/", async (req, res) => {
+  res.status(200).json({ message: "Getting response", sucess: true });
+});
 
 process.on("uncaughtException", err => {
   console.log("Server is closing due to uncaughtException occured!")
