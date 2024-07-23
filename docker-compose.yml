@@ -10,7 +10,10 @@ services:
     depends_on:
       - backend
     environment:
-      - REACT_APP_API_URL=http://localhost:6000/api
+      - REACT_APP_API_URL=http://13.51.76.222:6000/api
+    restart: always
+    networks:
+      - app-network
 
   backend:
     build:
@@ -26,6 +29,9 @@ services:
       - DB_USER=root
       - DB_PASSWORD=password
       - DB_NAME=mydatabase
+    restart: always
+    networks:
+      - app-network
 
   db:
     image: mysql:8
@@ -33,10 +39,14 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: mydatabase
-    ports:
-      - "3306:3306"
     volumes:
       - db-data:/var/lib/mysql
+    networks:
+      - app-network
 
 volumes:
   db-data:
+
+networks:
+  app-network:
+    driver: bridge
