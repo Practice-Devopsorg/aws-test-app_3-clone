@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
     "compose:up": "docker-compose -f ../docker-compose.yml up -d",
     "compose:down": "docker-compose -f ../docker-compose.yml down"
   },
