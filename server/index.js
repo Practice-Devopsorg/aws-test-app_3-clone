@@ -9,6 +9,10 @@ const PORT = 6000
 application.use(cors())
 application.use(bodyparser.urlencoded({ extended: true }))
 application.use(express.json())
+application.use((req, res, next) => {
+  res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
+  next();
+});
 application.use(handleRoutes)
 
 
