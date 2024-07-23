@@ -25,8 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "compose:up": "docker-compose -f docker-compose.yml up -d",
-    "compose:down": "docker-compose -f docker-compose.yml down"
+    "compose:up": "docker-compose -f ../docker-compose.yml up -d",
+    "compose:down": "docker-compose -f ../docker-compose.yml down"
     
     
   },
