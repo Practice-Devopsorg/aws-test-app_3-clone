@@ -4,13 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-axios.create({
-  baseURL: `http://13.51.76.222:6000`,
-  headers: {
-    "Access-Control-Allow-Origin": "*",
-  },
-});
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <App />
