@@ -86,7 +86,7 @@ const Leafleet = () => {
     try {
       setLoadingRegister(true);
       const { data } = await axios.post(
-        "/pvfleet/project-register",
+        "https://greenenco.in/pvfleet/project-register",
         {
           country: ProjectData.country,
           state: ProjectData.state,
@@ -177,7 +177,7 @@ const Leafleet = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        "/pvfleet/all-project"
+        "https://greenenco.in/pvfleet/all-project"
       );
       if (data) {
         setProjects(data?.result);
