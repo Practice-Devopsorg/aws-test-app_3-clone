@@ -34,6 +34,8 @@ let DefaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
+axios.defaults.baseURL="http://13.51.76.222:6000"
+
 const Leafleet = () => {
   const [zoom, setZoom] = useState(2);
   const [openProjectData, setOpenProjectData] = useState(null);
@@ -86,7 +88,7 @@ const Leafleet = () => {
     try {
       setLoadingRegister(true);
       const { data } = await axios.post(
-        "http://13.51.76.222:6000/pvfleet/project-register",
+        "/pvfleet/project-register",
         {
           country: ProjectData.country,
           state: ProjectData.state,
@@ -177,7 +179,7 @@ const Leafleet = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        "http://13.51.76.222:6000/pvfleet/all-project"
+        "/pvfleet/all-project"
       );
       if (data) {
         setProjects(data?.result);
