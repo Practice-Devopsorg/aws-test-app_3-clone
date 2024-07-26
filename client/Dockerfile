@@ -10,6 +10,8 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
+EXPOSE 3000
+
 # Copy all source files from the client directory
 COPY . .
 
