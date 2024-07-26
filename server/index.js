@@ -6,7 +6,15 @@ const handleRoutes = require("./route")
 const PORT = 6000
 
 
-application.use(cors())
+application.use(
+  cors({
+    origin: ["http://13.51.76.222:3000", "http://13.51.76.222:6000"],
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+    allowedHeaders: "Content-Type,Authorization",
+    optionsSuccessStatus: 204,
+  })
+);
 application.use(bodyparser.urlencoded({ extended: true }))
 application.use(express.json())
 application.use((req, res, next) => {
