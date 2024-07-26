@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 # Expose port
-PORT 3000
+EXPOSE 3000
 
 # Set environment variables
 ENV REACT_APP_API_URL=http://13.51.76.222:6000
