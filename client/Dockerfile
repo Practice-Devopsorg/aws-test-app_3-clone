@@ -19,7 +19,7 @@ RUN npm run build
 FROM nginx:latest
 
 # Copy built files from build stage to Nginx's HTML directory
-COPY --from=build /app/ /usr/share/nginx/html
+COPY /app/build /usr/share/nginx/html
 
 # Copy custom Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
