@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . .
 
 # Set environment variables
-ENV REACT_APP_API_URL=http://13.51.76.222:6000/api
+ENV REACT_APP_API_URL=http://13.51.76.222:6000
 
 # Install dependencies
 RUN npm install
