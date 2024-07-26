@@ -18,11 +18,14 @@ RUN npm run build
 # Stage 2: Serve the React app with Nginx
 FROM nginx:latest
 
-# Copy built files from build stage to Nginx's HTML directory
-COPY ./client/ /usr/share/nginx/html
+# Remove default Nginx content
+RUN rm -rf /usr/share/nginx/html/*
 
 # Copy custom Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copy the built React app from the build stage
+COPY --from=build /app/build /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
