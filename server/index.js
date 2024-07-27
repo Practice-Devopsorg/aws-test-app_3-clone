@@ -6,15 +6,15 @@ const handleRoutes = require("./route")
 const PORT = 5000
 application.use(express.json())
 application.use(bodyparser.urlencoded({ extended: true }))
-application.use(
-  cors({
-    origin: ["http://13.51.76.222:3000", "http://13.51.76.222:5000"],
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true,
-    allowedHeaders: "Content-Type,Authorization",
-    optionsSuccessStatus: 204,
-  })
-);
+// application.use(
+//   cors({
+//     origin: ["http://13.51.76.222:3000", "http://13.51.76.222:5000"],
+//     methods: "GET,POST,PUT,DELETE",
+//     credentials: true,
+//     allowedHeaders: "Content-Type,Authorization",
+//     optionsSuccessStatus: 204,
+//   })
+// );
 application.use((req, res, next) => {
   res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
   next();
@@ -30,6 +30,7 @@ const accessControl = (req, res, next) => {
 };
  
 application.use(accessControl);
+application.use(cors())
 application.use(handleRoutes)
 
 application.get("/", async (req, res) => {
