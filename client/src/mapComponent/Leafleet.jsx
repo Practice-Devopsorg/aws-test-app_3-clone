@@ -34,7 +34,12 @@ let DefaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
-axios.defaults.baseURL="http://13.51.76.222:6000"
+axios.defaults.baseURL="http://13.51.76.222:5000"
+const headers = {
+  Accept: "application/json, text/plain, */*",
+  "Access-Control-Allow-Origin": "*",
+  "Content-Type": "application/json",
+};
 
 const Leafleet = () => {
   const [zoom, setZoom] = useState(2);
@@ -113,6 +118,9 @@ const Leafleet = () => {
           emailID: ProjectData.emailID,
           latitude: parseFloat(marker?.lat),
           longitude: parseFloat(marker?.lng),
+        },
+        {
+          headers:headers
         }
       );
       if (data) {
@@ -179,7 +187,10 @@ const Leafleet = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        "/pvfleet/all-project"
+        "/pvfleet/all-project",
+        {
+          headers:headers
+        }
       );
       if (data) {
         setProjects(data?.result);
