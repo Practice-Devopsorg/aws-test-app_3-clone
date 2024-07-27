@@ -3,24 +3,33 @@ const application = express();
 const bodyparser = require("body-parser")
 const cors = require("cors");
 const handleRoutes = require("./route")
-const PORT = 6000
-
-
+const PORT = 5000
+application.use(express.json())
+application.use(bodyparser.urlencoded({ extended: true }))
 application.use(
   cors({
-    origin: ["http://13.51.76.222:3000", "http://13.51.76.222:6000"],
+    origin: ["http://13.51.76.222:3000", "http://13.51.76.222:5000"],
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
     allowedHeaders: "Content-Type,Authorization",
     optionsSuccessStatus: 204,
   })
 );
-application.use(bodyparser.urlencoded({ extended: true }))
-application.use(express.json())
 application.use((req, res, next) => {
   res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
   next();
 });
+const accessControl = (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Methods',
+    'GET, POST, DELETE, OPTIONS, PUT, PATCH'
+  );
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+};
+ 
+application.use(accessControl);
 application.use(handleRoutes)
 
 application.get("/", async (req, res) => {
