@@ -8,13 +8,8 @@ services:
     ports:
         - 3000:3000
     depends_on:
-       backend:
-          condition: service_healthy
+      backend:
     restart: always
-    healthcheck:
-      test: ["CMD", "lsof", "-t", "-i:3000"]
-      timeout: 10s
-      retries: 5
     networks:
       - app-network
 
@@ -25,10 +20,6 @@ services:
     ports:
       - 5000:5000
     restart: always
-    healthcheck:
-      test: ["CMD", "lsof", "-t", "-i:5000"]
-      timeout: 10s
-      retries: 5
     networks:
       - app-network
 
