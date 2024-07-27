@@ -15,21 +15,21 @@ application.use(bodyparser.urlencoded({ extended: true }))
 //     optionsSuccessStatus: 204,
 //   })
 // );
-application.use((req, res, next) => {
-  res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
-  next();
-});
-const accessControl = (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header(
-    'Access-Control-Allow-Methods',
-    'GET, POST, DELETE, OPTIONS, PUT, PATCH'
-  );
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-};
+// application.use((req, res, next) => {
+//   res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
+//   next();
+// });
+// const accessControl = (req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header(
+//     'Access-Control-Allow-Methods',
+//     'GET, POST, DELETE, OPTIONS, PUT, PATCH'
+//   );
+//   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//   next();
+// };
  
-application.use(accessControl);
+// application.use(accessControl);
 application.use(cors())
 application.use(handleRoutes)
 
