@@ -16,8 +16,8 @@ COPY . .
 # Install dependencies
 RUN npm install
 
-# Expose port 6000
-EXPOSE 6000
+# Expose port 5000
+EXPOSE 5000
 
 # Start the backend server using pm2
 CMD ["pm2-runtime", "index.js"]
