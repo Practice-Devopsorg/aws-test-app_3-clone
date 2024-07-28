@@ -338,7 +338,40 @@
     font-weight: 800;
     font-size: 1.1vmax;
   }
-  
+  .step-container > div button {
+  padding: 1vmin 2vmin;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  background: linear-gradient(to right, #203864, #203864);
+  font-size: 1vmax;
+  margin: 0.5vmin 0;
+  color: white;
+  font-weight: 800;
+  letter-spacing: .1vmin;
+}
+.step-container > div:hover{
+  button{
+    background: rgb(37, 35, 35)
+  }
+}
+.step-container > div button {
+  padding: 1vmin 2vmin;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  background: linear-gradient(to right, #203864, #203864);
+  font-size: 1vmax;
+  margin: 0.5vmin 0;
+  color: white;
+  font-weight: 800;
+  letter-spacing: .1vmin;
+}
+.step-container > div:hover{
+  button{
+    background: rgb(37, 35, 35)
+  }
+}
   .detail-container-1 {
     position: absolute;
     top: 10%;
