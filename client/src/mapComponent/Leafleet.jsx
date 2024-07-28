@@ -864,7 +864,8 @@ const Leafleet = () => {
             <ZoomControl position="bottomleft" />
             <div className="step-container" ref={ref5}>
               <div>
-{/*                 <img src={step01} alt="Setp-01" /> */}
+{/*                 <img src={step01} alt="Setp-01" /> */} 
+                <button>Step 1</button>
                 <span>
                   Mark A Location{" "}
                   {marker && (
@@ -893,6 +894,7 @@ const Leafleet = () => {
                 }}
               >
 {/*                 <img src={step02} alt="Setp-02" /> */}
+                <button>Step 2</button>
                 <span>
                   Submit Project Details{" "}
                   {openForm && (
