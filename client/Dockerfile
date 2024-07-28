@@ -18,12 +18,3 @@ EXPOSE 3000
 
 # Start the app
 CMD ["npm", "start"]
-
-# Stage 2: Serve the React app with Nginx
-FROM nginx:latest
-
-# Expose port 80
-EXPOSE 80
-
-# Command to run Nginx in the foreground
-CMD ["nginx", "-g", "daemon off;"]
