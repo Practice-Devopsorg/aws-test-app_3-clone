@@ -6,7 +6,9 @@ services:
       context: ./client
       dockerfile: Dockerfile
     ports:
-        - 3000:3000
+      - 3000:3000
+    environment:
+      - REACT_APP_API_URL=http://development.greenenco.in/api
     restart: always
     networks:
       - app-network
