@@ -3,12 +3,12 @@ const application = express();
 const bodyparser = require("body-parser")
 const cors = require("cors");
 const handleRoutes = require("./route")
-const PORT = 5000
+const PORT = 8000
 application.use(express.json())
 application.use(bodyparser.urlencoded({ extended: true }))
 // application.use(
 //   cors({
-//     origin: ["http://13.51.76.222:3000", "http://13.51.76.222:5000"],
+//     origin: ["http://13.51.76.222:3001", "http://13.51.76.222:8000"],
 //     methods: "GET,POST,PUT,DELETE",
 //     credentials: true,
 //     allowedHeaders: "Content-Type,Authorization",
