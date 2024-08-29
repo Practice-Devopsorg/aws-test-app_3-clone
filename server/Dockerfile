@@ -14,7 +14,7 @@ COPY . .
 RUN npm install
 
 # Expose port 8000
-EXPOSE 8001
+EXPOSE 8002
 
 # Start the backend server using pm2
 CMD ["pm2-runtime", "index.js"]
